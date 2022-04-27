@@ -1,0 +1,21 @@
+{
+  "name": "gildedrose",
+  "version": "1.0.0",
+  "description": "====================================== Gilded Rose Requirements Specification ======================================",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^28.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.14.0"
+  }
+}
