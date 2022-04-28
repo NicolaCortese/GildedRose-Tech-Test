@@ -1,4 +1,3 @@
-const { time } = require("console");
 
 class Item {
   constructor(name, sellIn, quality){
@@ -18,6 +17,7 @@ class Shop {
       if (item.name === "Aged Brie") { this.agedBrie(item) }
       else if (item.name === "Backstage passes to a TAFKAL80ETC concert") { this.backPass(item) }
       else if (item.name === "Sulfuras, Hand of Ragnaros") { this.sulfuras(item) }
+      else if (item.name === "Conjured hand of the Wizard of Oz") { this.conjured(item) }
       else {
         item.sellIn -= 1;
         item.quality -= 1;
@@ -64,6 +64,17 @@ class Shop {
   
   sulfuras(item) {
     //nothing to do here, maybe throw an error if quality isn't 80?
+  }
+
+  conjured(item) {
+    item.sellIn -= 1;
+    item.quality -= 2;
+    if (item.sellIn < 0) {
+      item.quality -= 2;
+    }
+    if (item.quality < 0) {
+      item.quality = 0
+    }
   }
   
 

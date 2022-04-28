@@ -8,6 +8,7 @@ beforeEach(() => {
   this.expiredPotion = new Item("Potion", 0, 4);
   this.pass = new Item("Backstage passes to a TAFKAL80ETC concert", 12, 10);
   this.sulfuras = new Item("Sulfuras, Hand of Ragnaros", 0, 80);
+  this.conjured = new Item("Conjured hand of the Wizard of Oz", 2, 10);
 
 });
 
@@ -139,6 +140,36 @@ describe("Gilded Rose", () => {
       gildedRose.updateQuality();
       expect(gildedRose.items[0].quality).toBe(80);
       expect(gildedRose.items[0].sellIn).toBe(0);
+    });
+  
+  });
+
+  describe("Testing for a conjured item", () => {
+
+    it("item quality drops by 2 when sellin is positive", () => {
+      const gildedRose = new Shop([this.conjured]);
+      gildedRose.updateQuality();
+      expect(gildedRose.items[0].quality).toBe(8);
+      expect(gildedRose.items[0].sellIn).toBe(1);
+      gildedRose.updateQuality();
+      expect(gildedRose.items[0].quality).toBe(6);
+      expect(gildedRose.items[0].sellIn).toBe(0);
+    });
+
+    it("item quality drops by 4 when sellin is negative", () => {
+      const gildedRose = new Shop([this.conjured]);
+      gildedRose.updateQuality();
+      expect(gildedRose.items[0].quality).toBe(8);
+      expect(gildedRose.items[0].sellIn).toBe(1);
+      gildedRose.updateQuality();
+      expect(gildedRose.items[0].quality).toBe(6);
+      expect(gildedRose.items[0].sellIn).toBe(0);
+      gildedRose.updateQuality();
+      expect(gildedRose.items[0].quality).toBe(2);
+      expect(gildedRose.items[0].sellIn).toBe(-1);
+      gildedRose.updateQuality();
+      expect(gildedRose.items[0].quality).toBe(0);
+      expect(gildedRose.items[0].sellIn).toBe(-2);
     });
   
   });
