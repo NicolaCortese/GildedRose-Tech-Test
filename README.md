@@ -1,3 +1,23 @@
+My approach to the gilded rose was to adopt a Strategy pattern, which means defining the various possible algorithms, encapsulate each one and make them interchangeable.
+By specifying the needs of the different items as strategies, we can sort them out by name and apply the correct strategy for each one. This way the code becomes far clearer to follow and understand, and it also separates clearly the path that each item takes thorugh our code.
+
+### Requirements
+
+To run the code you will need to have the latest version of Node.js, run the following:
+```
+npm install
+```
+This application runs in a REPL, you can open it by running the code:
+```
+node
+```
+
+## Dependancies
+Jest for testing
+ESLint as a linter
+
+
+
 ======================================
 Gilded Rose Requirements Specification
 ======================================

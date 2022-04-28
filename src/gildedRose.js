@@ -1,3 +1,4 @@
+const { normalize } = require("path");
 
 class Item {
   constructor(name, sellIn, quality){
@@ -18,21 +19,24 @@ class Shop {
       else if (item.name === "Backstage passes to a TAFKAL80ETC concert") { this.backPass(item) }
       else if (item.name === "Sulfuras, Hand of Ragnaros") { this.sulfuras(item) }
       else if (item.name === "Conjured hand of the Wizard of Oz") { this.conjured(item) }
-      else {
-        item.sellIn -= 1;
-        item.quality -= 1;
-        if (item.sellIn < 0) {
-          item.quality -= 1;
-        }
-        if (item.quality < 0) {
-          item.quality = 0
-        }
-      }
+      else { this.normalItem(item) }
+      
     });
     
     return this.items;
   }
 
+  normalItem(item) {
+    item.sellIn -= 1;
+    item.quality -= 1;
+    if (item.sellIn < 0) {
+      item.quality -= 1;
+    }
+    if (item.quality < 0) {
+      item.quality = 0
+    }
+  }
+  
   agedBrie(item) {
     item.sellIn -= 1;
     item.quality += 1;
