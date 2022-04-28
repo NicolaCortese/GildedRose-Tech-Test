@@ -92,6 +92,8 @@ describe("Gilded Rose", () => {
     it("should double the rate at which quality increases when the sellin is < 11", () => {
       const gildedRose = new Shop([this.pass]);
       gildedRose.updateQuality();
+      expect(gildedRose.items[0].sellIn).toBe(11);
+      expect(gildedRose.items[0].quality).toBe(11);
       gildedRose.updateQuality();
       expect(gildedRose.items[0].sellIn).toBe(10);
       expect(gildedRose.items[0].quality).toBe(12);
